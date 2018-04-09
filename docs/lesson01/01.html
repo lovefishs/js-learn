@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>JavaScript 基本语法</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="../style/normalize.css">
+  <style type="text/css">
+    main {
+      margin: 0 auto;
+      min-width: 400px;
+      max-width: 10rem;
+    }
+
+    section {
+      margin-bottom: 20px;
+    }
+    h3 {
+      margin-bottom: .05rem;
+      font-size: .18rem;
+    }
+    article, p {
+      margin-bottom: .05rem;
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+
+    <section>
+      <h3>注释</h3>
+      <article>
+<pre>
+// 单行注释
+
+/*
+  这是一个更长的
+  多行注释
+ */
+</pre>
+      </article>
+    </section>
+
+    <section>
+      <h3>声明</h3>
+      <article>
+        <p>JavaScript 有 <b>3</b> 种声明方式：<code>var</code>，<code>let</code>，<code>const</code></p>
+        <ul>
+          <li><code>var</code>：声明一个变量</li>
+          <li><code>let</code>：声明一个块作用域的局部变量</li>
+          <li><code>const</code>：声明一个块作用域的、只读的常量</li>
+        </ul>
+      </article>
+      <article>
+<pre>
+var x; // 声明一个变量 x，并且没有对 x 进行赋值，未赋值的变量默认值为 undefined
+
+var name = 'Zhang'; // 声明一个变量 name，并赋值为 'Zhang'，此时变量 name 的值为 'Zhange'
+name = 'Wang'; // 重新对变量赋值，此时变量 name 的值变成了 'Wang'
+
+if (true) {
+  let age = 18; // 声明一个块作用域的局部变量 age，并且赋值为 18，在块作用域内(简单理解就是 {} 括号之间的代码段内)，age 的值为 18
+  console.log(age); // 输出结果: 18
+
+  age = 28; // 可以对 age 变量进行重复赋值，此时 age 值为 28
+  console.log(age); // 输出结果: 28
+}
+// 在块作用域外 访问声明的 块作用域变量 会报错
+console.log(age); // 输出结果: ReferenceError: age is not defined
+
+const PI = 3.14159; // 声明一个常量(常量就是值不会变化的量)
+PI = 6; // 对常量进行重复赋值会报错: TypeError: Assignment to constant variable
+</pre>
+      </article>
+    </section>
+
+    <section>
+      <h3>数据结构与类型</h3>
+      <article>
+        <p>JavaScript 中有 <b>6</b> 种基本类型，有 <b>1</b> 种复合类型。</p>
+        <p>基本类型：</p>
+        <ul>
+          <li><abbr title="Boolean: In computer science, a boolean is a logical data type that can have only the values true or false.">Boolean</abbr>：布尔值，<code>true</code> 和 <code>false</code></li>
+          <li><abbr title="null: In computer science, a null value represents a reference that points, generally intentionally, to a nonexistent or invalid object or address. The meaning of a null reference varies among language implementations.">null</abbr>：一个表明 null 值的特殊关键字</li>
+          <li><abbr title="undefined: A primitive value automatically assigned to variables that have just been declared or to formal arguments for which there are no actual arguments.">undefined</abbr>：变量未定义时的属性</li>
+          <li><abbr title="Number: In JavaScript, Number is a numeric data type in the double-precision 64-bit floating point format (IEEE 754). In other programming languages different numeric types can exist, for examples: Integers, Floats, Doubles, or Bignums.">Number</abbr>：表示数字，例如 <code>42</code> <code>3.14159</code></li>
+          <li><abbr title="String: In any computer programming language, a string is a sequence of characters used to represent text.">String</abbr>：表示字符串，例如 <code>'Zhange'</code> <code>"wang"</code></li>
+          <li><abbr title="Symbol: This glossary page describes both a data type, called &quot;symbol&quot;, and the class-like function, called&nbsp;&quot;Symbol()&quot;, that (among other things) creates instances of the symbol data type.">Symbol</abbr>：ES6 新添加的类型，表示独一无二的值</li>
+        </ul>
+        <p>复合类型：</p>
+        <ul>
+          <li><abbr title="Object: Object refers to a data structure containing data and instructions for working with the data. Objects sometimes refer to real-world things, for example a car or map object in a racing game. JavaScript, Java, C++, Python, and Ruby are examples of object-oriented programming languages.">Object</abbr>：对象</li>
+        </ul>
+      </article>
+      <article>
+<pre>
+let isRight = true; // 布尔类型
+let temp = null; // null 类型
+let a; // undefined 类型
+let age = 18; // 数值类型
+let name = 'Zhang'; // 字符串类型
+let s = Symbol(); // symbol 类型
+let o = { name: 'Zhange', age: 18 }; // 对象
+
+// 使用 typeof 操作符获取 表达式 的数据类型，返回字符串
+console.log(typeof isRight); // 输出: boolean
+console.log(typeof temp); // 输出: null
+console.log(typeof a); // 输出: undefined
+console.log(typeof age); // 输出: number
+console.log(typeof name); // 输出: string
+console.log(typeof s); // 输出: symbol
+console.log(typeof o); // 输出: object
+</pre>
+      </article>
+    </section>
+
+  </main>
+
+</body>
+</html>
