@@ -7,12 +7,43 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" href="../style/normalize.css">
+  <style type="text/css">
+    main {
+      margin: 0 auto;
+      min-width: 400px;
+      max-width: 10rem;
+    }
+  </style>
 </head>
 <body>
 
+  <main>
+<pre>
+// 乘法表函数
+function multiplicationTable (num) {
+  let result = '';
+
+  for (let i = 1; i <= num; i++) {
+    for (let j = 1; j <= i; j++) {
+      result += j + '*' + i + '=' + (i * j);
+      result += '&nbsp;&nbsp;&nbsp;&nbsp;'; // &nbsp; 相当于 半个 空格
+    }
+
+    result += '&lt;br /&gt;';
+  }
+
+  return result;
+}
+
+const str = multiplicationTable(9); // 获取 9*9 的乘法表结果
+
+document.write(str); // 把结果打印到网页中
+</pre>
+  </main>
+
   <script type="text/javascript">
     // 乘法表函数
-    function multiplicationTable (num = 1) {
+    function multiplicationTable (num) {
       let result = '';
 
       for (let i = 1; i <= num; i++) {
