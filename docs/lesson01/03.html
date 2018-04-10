@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>斐波拉切数列</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="../style/normalize.css">
+  <style type="text/css">
+    main {
+      margin: 0 auto;
+      min-width: 400px;
+      max-width: 10rem;
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+<pre>
+// 计算第 n 位斐波拉切数列的值
+// fib1 函数使用 递归 的方式进行计算求值
+// 递归 的方式求 斐波拉契数列 带来的问题是进行了非常多的重复计算，比如
+// F(10) 时需要先计算 F(9) 与 F(8)，但是计算 F(9) 又需要计算 F(8) 和 F(7)，在这里就进行了 2 次 F(8) 的计算，以此类推，递归程序进行了非常多的重复计算，效率不高
+function fib1 (n) {
+  if (n === 0) {
+    return 0;
+  } else if (n === 1) {
+    return 1;
+  } else {
+    return fib1(n - 1) + fib1(n - 2);
+  }
+}
+
+// 为了避免重复计算，我们可以顺序求值
+// 也就是说对于一个任意 n 值，我们至多只需要循环 n-1 次即可求得第 n 位的斐波拉契数列值
+function fib2 (n) {
+  if (n === 0) {
+    return 0;
+  } else if (n === 1) {
+    return 1;
+  } else {
+    let num2 = 0; // 表示 n-2 的值
+    let num1 = 1; // 表示 n-1 的值
+    let fib = 0; // 最后所要计算的值
+
+    for (let i = 1; i < n; i++) {
+      fib = num1 + num2; // F(n) = F(n-1) + F(n-2)
+
+      // 随着 n 的增大，需要不断更新 n-2 与 n-1 的值(也就是用新值换掉旧值)
+      num2 = num1;
+      num1 = fib;
+    }
+
+    return fib;
+  }
+}
+
+const n = 10; // 定义位数
+const num1 = fib1(n); // 计算第 n 位的 斐波拉切数列 值
+const num2 = fib2(n);
+
+document.write(`第 ${n} 位斐波拉切数列的值是 ${num1}，使用 fib1 函数计算而得 &lt;br /&gt;`); // 把结果打印到网页中
+document.write(`第 ${n} 位斐波拉切数列的值是 ${num2}，使用 fib2 函数计算而得 &lt;br /&gt;`);
+</pre>
+  </main>
+
+  <script type="text/javascript">
+    // 计算第 n 位斐波拉切数列的值
+    // fib1 函数使用 递归 的方式进行计算求值
+    // 递归 的方式求 斐波拉契数列 带来的问题是进行了非常多的重复计算，比如
+    // F(10) 时需要先计算 F(9) 与 F(8)，但是计算 F(9) 又需要计算 F(8) 和 F(7)，在这里就进行了 2 次 F(8) 的计算，以此类推，递归程序进行了非常多的重复计算，效率不高
+    function fib1 (n) {
+      if (n === 0) {
+        return 0;
+      } else if (n === 1) {
+        return 1;
+      } else {
+        return fib1(n - 1) + fib1(n - 2);
+      }
+    }
+
+    // 为了避免重复计算，我们可以顺序求值
+    // 也就是说对于一个任意 n 值，我们至多只需要循环 n-1 次即可求得第 n 位的斐波拉契数列值
+    function fib2 (n) {
+      if (n === 0) {
+        return 0;
+      } else if (n === 1) {
+        return 1;
+      } else {
+        let num2 = 0; // 表示 n-2 的值
+        let num1 = 1; // 表示 n-1 的值
+        let fib = 0; // 最后所要计算的值
+
+        for (let i = 1; i < n; i++) {
+          fib = num1 + num2; // F(n) = F(n-1) + F(n-2)
+
+          // 随着 n 的增大，需要不断更新 n-2 与 n-1 的值(也就是用新值换掉旧值)
+          num2 = num1;
+          num1 = fib;
+        }
+
+        return fib;
+      }
+    }
+
+    const n = 10; // 定义位数
+    const num1 = fib1(n); // 计算第 n 位的 斐波拉切数列 值
+    const num2 = fib2(n);
+
+    document.write(`第 ${n} 位斐波拉切数列的值是 ${num1}，使用 fib1 函数计算而得 <br />`); // 把结果打印到网页中
+    document.write(`第 ${n} 位斐波拉切数列的值是 ${num2}，使用 fib2 函数计算而得 <br />`);
+  </script>
+
+</body>
+</html>
